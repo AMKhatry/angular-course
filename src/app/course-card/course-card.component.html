@@ -5,18 +5,17 @@
         {{ cardIndex || ' ' + ' ' + course.description }}
     </div>
 
+    <ng-content select=".course-image"></ng-content>
 
-    <img #courseCardImage width="300" alt="Angular Logo"
-        *ngIf="isImageVisible(); else noImage"
-         [src]="course.iconUrl">
+    <ng-content select=".course-description"></ng-content>
+
+    <ng-content></ng-content>
 
     <ng-template #noImage>
         <p>No image is available.</p>
     </ng-template>    
 
-    <div class="course-description">
-        {{course.longDescription}}
-    </div>
+
 
     <!--used the <ng-container> core directive here to see that the functionality of the page doesn't change-->
     <ng-container [ngSwitch]="course.category">
