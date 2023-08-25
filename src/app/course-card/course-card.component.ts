@@ -9,11 +9,14 @@ import {Course} from '../model/course';
 })
 export class CourseCardComponent {
 
-  @Input({required: true}) course: Course;
+  @Input({required: true}) 
+  course: Course;
 
-  @Input() cardIndex: number;
+  @Input() 
+  cardIndex: number;
 
-  @Output('courseSelected') courseEmitter = new EventEmitter<Course>();
+  @Output('courseSelected') 
+  courseEmitter = new EventEmitter<Course>();
   
   onCourseViewed(){
     console.log("card component - button clicked..");
