@@ -4,6 +4,8 @@ import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
 import {HighlightedDirective} from './directives/highlighted.directive';
 import {Observable} from 'rxjs';
+import { CoursesService } from './services/courses.service';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +14,23 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
+  courses$ : Observable<Course[]>;
 
-  courses = COURSES;
-
-  constructor() {
+  constructor(private coursesService: CoursesService) {
 
   }
 
   ngOnInit() {
+
+    this.courses$ = this.coursesService.loadCourses()
+
   }
 
-
+  save(course:Course){
+    this.coursesService.saveCourse(course)
+      .subscribe(
+        () => console.log('Course Saved!')
+      );
+  }
 
 }
