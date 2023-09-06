@@ -5,6 +5,7 @@ import {
     ContentChildren,
     ElementRef,
     EventEmitter,
+    Inject,
     Input,
     OnInit,
     Output,
@@ -32,7 +33,7 @@ export class CourseCardComponent implements OnInit {
     courseEmitter = new EventEmitter<Course>();
 
 
-    constructor(private coursesService: CoursesService) {
+    constructor(@Inject(COURSES_SERVICE) private coursesService: CoursesService) {
         
     }
 
