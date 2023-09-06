@@ -11,7 +11,7 @@ function coursesServiceProvider(http:HttpClient): CoursesService {
     return new CoursesService(http);
 }
 
-const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVICE');
+export const COURSES_SERVICE = new InjectionToken<CoursesService>('COURSES_SERVICE');
 
 @Component({
   selector: 'app-root',
